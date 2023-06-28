@@ -21,6 +21,7 @@ def index(request):
 class MenuItemsView(ListCreateAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuItemSerializer
+    permission_classes = [IsAuthenticated]
 
 class SingleMenuItemView(RetrieveUpdateAPIView, DestroyAPIView):
     queryset = Menu.objects.all()
@@ -29,6 +30,7 @@ class SingleMenuItemView(RetrieveUpdateAPIView, DestroyAPIView):
 class BookingViewSet(ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class UserViewSet(viewsets.ModelViewSet):
