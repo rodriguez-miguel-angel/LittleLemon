@@ -21,7 +21,7 @@ In this project, I build an API for the Little Lemon restaurant using the Django
   <ul>
     <li>GET [Secured Endpoint]: /restaurant/booking/tables/ </li>
   </ul>
-<ul>
+</ul>
 
 <h2>Backend Routes: djoser.</h2>
 <ul>
@@ -29,6 +29,6 @@ In this project, I build an API for the Little Lemon restaurant using the Django
   <ul>
     <li>POST: /restaurant/api-token-auth/ </li>
   </ul>
-<ul>
+</ul>
 
 
