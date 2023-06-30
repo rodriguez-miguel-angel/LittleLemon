@@ -32,5 +32,3 @@ In this project, I build an API for the Little Lemon restaurant using the Django
 <ul>
 
 
-
-</ul>
