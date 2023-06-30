@@ -70,4 +70,4 @@ In this project, I build an API for the Little Lemon restaurant using the Django
 
 
 ## Contributors
-# Coursera. Meta. Miguel Angel Rodriguez.
+#### Coursera. Meta. Miguel Angel Rodriguez.
