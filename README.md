@@ -1,7 +1,8 @@
 # LittleLemon
 
-<h2>Introduction</h2>
-In this project, I build an API for the Little Lemon restaurant using the Django REST Framework. This Capstone project enables me to demonstrate multiple skills from the Certificate by solving an authentic real-world problems. 
+## Introduction
+In this project, I build an API for the Little Lemon restaurant using the Django REST Framework. This Capstone project enables me to demonstrate multiple skills from the Certificate by solving an authentic real-world problems. I used Django to serve static HTML content. I set up the MySQL connection, and created the required models for the web application. Then, I built the menu and table booking APIs using the Django Rest Framework. Finally, I not only set up user registration and authentication but test the application with unit tests and Postman as well.
+
 
 ## Getting Started
 * Run 'git clone https://github.com/rodriguez-miguel-angel/LittleLemon.git'   
