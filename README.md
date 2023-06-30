@@ -13,11 +13,11 @@ In this project, I build an API for the Little Lemon restaurant using the Django
 
 ## Usage
 ### User's Credentials
-* *Usename: * arod
-* *Email: * arod@abc.net
-* *Password: * insecure-password
-* *Token: * 255449495c0561bb30405eef44317c83c15103c0
-* *Authorization: * Token 255449495c0561bb30405eef44317c83c15103c0
+* Usename: arod
+* Email: arod@abc.net
+* Password: insecure-password
+* Token: 255449495c0561bb30405eef44317c83c15103c0
+* Authorization: Token 255449495c0561bb30405eef44317c83c15103c0
 
 <h2>Backend Routes: Menu API</h2>
 <ul>
