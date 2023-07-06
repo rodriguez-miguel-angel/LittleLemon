@@ -9,6 +9,7 @@ In this project, I built an API for the Little Lemon restaurant using the Django
 
 ## Development server
 * Run 'pipenv shell'
+* Run 'pipenv install'
 * Run 'cd littlelemon'
 * Run `python manage.py runserver` for a dev server. Navigate to 'http://127.0.0.1:8000/`.
 
