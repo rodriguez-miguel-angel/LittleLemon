@@ -58,7 +58,10 @@ ROOT_URLCONF = "littlelemon.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ['templates', 'restaurant/static'],
+        # version-01 [capstone-version]:
+        # "DIRS": ['templates', 'restaurant/static'],
+        # version-02 [fullstack-version]:
+        "DIRS": ['restaurant/templates', 'restaurant/static'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -120,7 +123,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+"""
+version-01:
 STATIC_URL = "static/"
+version-02:
+"""
+STATIC_URL = "restaurant/static/"
 
 STATICFILES_DIRS = [
     "restaurant/static",
