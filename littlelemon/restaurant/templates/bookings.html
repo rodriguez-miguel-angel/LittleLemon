@@ -56,7 +56,8 @@
   document.getElementById('bookings').innerHTML = display
 
   */  
-  const booking_json = JSON.parse('{{ bookings|safe }}');
+   
+  const booking_json = JSON.parse('{{ list|safe }}');
   var display = "";
   for (const element of booking_json) {
     display += `<h2>Name: ${element.fields.name}</h2>`

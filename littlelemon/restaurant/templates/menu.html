@@ -4,7 +4,7 @@
 <h1>Menu</h1>
 <!--Begin col-->
 <div class="column">
-    {% for item in menu.menu %}
+    {% for item in menu_items %}
     <p>
         <a href="{% url 'restaurant:menu_item' pk=item.pk %}">
             {{ item.title }}

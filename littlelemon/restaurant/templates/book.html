@@ -28,7 +28,7 @@
                 <option value="0" disabled>Select the number of guests ...</option>
               </select>
             </p>
-            <button type="button" id="button">Reserve</button>
+            <button type="submit" id="button">Reserve</button>
           </form>
       </div>
       <!--End col-->
@@ -44,9 +44,6 @@
     </div>
     <!--End row-->
 
-
-
-
   </article>
 </section>
 <script>
@@ -54,11 +51,6 @@
   const date = new Date()
   document.getElementById('booking_date').value = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate().toString().padStart(2, "0")}`
 
-  console.log(document.getElementById('booking_date').value)
-  getBookings()
-
-
-  /*  Step 10: Part two */
   document.getElementById('booking_date').addEventListener('change', function (e) {
     getBookings();
   });
@@ -68,15 +60,17 @@
     const date = document.getElementById('booking_date').value
     document.getElementById('today').innerHTML = date
     
-    fetch("{% url 'restaurant:bookings' %}" + '?date=' + date)
+    // fetch("{% url 'restaurant:bookings' %}" + '?date=' + date)
+    fetch("{% url 'restaurant:booking' %}" + '?date=' + date)
       .then(response => {
         console.log("response:", response)
-        return response.json();
+        const data = response.json();
+        return data;
       })
       .then(data => {       
         reserved_slots = []
         let bookings = ''
-        
+        console.log("data:", data)
         /* 
         Step 11: Part three 
         See <https://developer.mozilla.org/en-US/docs/Web/API/Response/json>.
@@ -119,6 +113,60 @@
       })
   }
 
+  
+
+
+
+  const form = document.getElementById('form');
+  form.addEventListener('submit', reserveHandler);
+
+  function reserveHandler(e) {
+    e.preventDefault();
+    /*
+    version-01:
+
+    const formData = {
+      name: document.getElementById('name').value,
+      booking_date: document.getElementById('booking_date').value,
+      no_of_guests: document.getElementById('no_of_guests').value,
+    }
+
+    const data = JSON.stringify(formData);
+
+    fetch("{% url 'restaurant:bookings' %}", 
+      {
+        method: 'POST', 
+        body: data,
+        headers: { "X-CSRFToken": '{{csrf_token}}' },
+      })
+
+    */
+    /*
+    version-02:
+    */
+    const f = new FormData()
+    f.append("name", document.getElementById('name').value);
+    f.append("booking_date", document.getElementById('booking_date').value);
+    f.append("no_of_guests", document.getElementById('no_of_guests').value);
+
+    fetch("{% url 'restaurant:bookings' %}", 
+      {
+        method: 'POST', 
+        body: f,
+        headers: { "X-CSRFToken": '{{csrf_token}}' },
+      })
+      .then(response => {
+        console.log("response [reserveHandler]:",response)
+        const data = response.text(); 
+        return data;
+      })
+      .then(data => {
+        console.log("data [reserveHandler]:", data);
+        getBookings();
+      })
+  }
+
+
   function formatTime(time) {
     const ampm = time < 12 ? 'AM' : 'PM'
     const t = time < 12 ? time : time > 12 ? time - 12 : time
@@ -126,20 +174,6 @@
     return label
   }
 
-
-  document.getElementById('button').addEventListener('click', function (e) {
-    const formdata = {
-      name: document.getElementById('name').value,
-      booking_date: document.getElementById('booking_date').value,
-      no_of_guests: document.getElementById('no_of_guests').value,
-    }
-
-    fetch("{% url 'restaurant:bookings' %}", { method: 'post', body: JSON.stringify(formdata) })
-      .then(r => r.text())
-      .then(data => {
-        getBookings()
-      })
-  })
 </script>
 {% endblock %}
 
